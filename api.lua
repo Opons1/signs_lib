@@ -468,6 +468,7 @@ signs_lib.charwidth_wide32 = build_char_db(32)
 local math_max = math.max
 
 local function fill_line(x, y, w, c, font_size, colorbgw)
+
 	c = c or "0"
 	local tex = { }
 	for xx = x, w, colorbgw do
@@ -475,6 +476,8 @@ local function fill_line(x, y, w, c, font_size, colorbgw)
 	end
 	return table.concat(tex)
 end
+
+jit.off(fill_line)
 
 -- make char texture file name
 -- if texture file does not exist use fallback texture instead
